@@ -5,5 +5,5 @@ class Role
 
   has_many :operations
   has_many :users
-  
+
 end

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Basic -->
+<meta charset="utf-8">
+<title>RealO2O 线上线下互通的电商平台</title>
+<meta name="keywords" content="HTML5 Template" />
+<meta name="description" content="/marvel - MultiShop Responsive HTML5 Template">
+<meta name="author" content="pixelgeeklab.com">
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Web Fonts  -->
+<link href='http://fonts.googleapis.com/css?family=Dosis:300,400,500,600,700' rel='stylesheet' type='text/css'>
+<%= stylesheet_link_tag "front/application" , media: "all" %>
+<%= javascript_include_tag "front/application" %>
+<%= yield :head %>
+<%= csrf_meta_tags %>
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="/marvel/vendor/fontawesome/css/font-awesome.css">
+<link rel="stylesheet" href="/marvel/vendor/owlcarousel/owl.carousel.css" media="screen">
+<link rel="stylesheet" href="/marvel/vendor/owlcarousel/owl.theme.css" media="screen">
+<link href="/marvel/vendor/owlcarousel/owl.transitions.css" rel="stylesheet" media="screen">
+<link rel="stylesheet" href="/marvel/vendor/flexslider/flexslider.css" media="screen">
+<link rel="stylesheet" href="/marvel/vendor/chosen/chosen.css" media="screen">
+<link rel="stylesheet" href="/marvel/vendor/magnific-popup/magnific-popup.css" media="screen">
+
+<!-- Theme CSS -->
+<link rel="stylesheet" href="/marvel/css/theme.css">
+<link rel="stylesheet" href="/marvel/css/theme-animate.css">
+
+<!-- Style Switcher-->
+<link href="/marvel/css/colors/red/style.css" rel="stylesheet" id="layoutstyle">
+
+<!-- Head libs -->
+<script src="/marvel/vendor/modernizr/modernizr.js"></script>
+
+<!--[if IE]>
+      <link rel="stylesheet" href="/marvel/css/ie.css">
+      <![endif]-->
+
+<!--[if lte IE 8]>
+        <script src="/marvel/vendor/respond/respond.js"></script>
+        <script src="/marvel/vendor/excanvas/excanvas.js"></script>
+        <![endif]-->
+
+</head>
+<body class="front bg-pattern-dark">
+<div class="body">
+  <header id="header" class="header-light">
+    <div class="header-top light-header-top">
+      <div class="container">
+        <nav>
+          <ul class="nav nav-pills nav-top nav-top-right">
+            <li class="search"><a data-target=".search-wrapper" data-toggle="modal" href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a></li>
+            <% if current_user %>
+              <li class="login">
+              <%= link_to( edit_user_registration_path) do  %>
+                <i class="fa fa-user"></i>个人中心
+              <% end %>
+              </li>
+              <li class="loginout">
+              <%= link_to( destroy_user_session_path, method: :delete) do  %>
+                <i class="fa fa-user"></i> 登出
+              <% end %>
+              </li>
+            <% else %>
+              <li class="login">
+              <a data-target=".form-wrapper" data-toggle="modal" href="javascript:void(0);"><i class="fa fa-user"></i>登陆或注册</a>
+              </li>
+            <% end %>
+            <li class="shopping-cart">
+            <a href="#offcanvas-cart" data-uk-offcanvas><i class="fa fa-shopping-cart"></i> <span>购物车(<span>0</span>)</span></a>
+            </li>
+          </ul>
+        </nav>
+        <p class="text-note pull-left">电子商务平台</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="navbar-header">
+        <a href="#offcanvas" class="uk-navbar-toggle hidden-lg pull-right" data-uk-offcanvas>
+          <span class="sr-only">Toggle navigation</span>
+          <i class="fa fa-bars"></i>
+        </a>
+        <h1 class="logo">
+          <%= link_to image_tag("/marvel/images/logo2.png"), root_path  %>
+        </h1>
+      </div>
+      <!-- nav start -->
+      <%= render "shared/front/nav" %>
+      <!-- nav End -->
+    </div>
+  </header>
+
+  <%= yield%>
+  <!-- Begin Footer -->
+  <%= render "shared/front/footer" %>
+  <!-- End Footer -->
+</div>
+
+<!-- Begin Search -->
+<%= render "shared/front/search" %>
+<!-- End Search -->
+
+<!-- Begin Login/Register -->
+<%= render "shared/front/loginandregister" %>
+<!-- End -->
+
+<!-- Begin Quickview -->
+<%= render "shared/front/quickview" %>
+<!-- End Quickview -->
+
+<!-- Start nav_mobile -->
+<%= render "shared/front/nav_mobile" %>
+<!-- End nav_mobile -->
+
+<!-- Start cart -->
+<%= render "shared/front/cart" %>
+<!-- End cart -->
+
+<!-- Vendor -->
+
+<script src="/marvel/vendor/bootstrap/bootstrap.js"></script>
+<script src="/marvel/vendor/jquery.validation/jquery.validation.js"></script>
+<script src="/marvel/vendor/owlcarousel/owl.carousel.js"></script>
+<script src="/marvel/vendor/flexslider/jquery.flexslider-min.js"></script>
+<script src="/marvel/vendor/countdown/countdown.min.js"></script>
+<script src="/marvel/vendor/chosen/chosen.jquery.min.js"></script>
+<script src="/marvel/vendor/pricefilter/jquery.pricefilter.js"></script>
+<script src="/marvel/vendor/masonry/imagesloaded.pkgd.min.js"></script>
+<script src="/marvel/vendor/masonry/masonry.pkgd.min.js"></script>
+<script src="/marvel/vendor/uikit/uikit.js"></script>
+<script src="/marvel/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+<script src="/marvel/vendor/sequence/jquery.sequence-min.js"></script>
+<script src="/marvel/vendor/sequence/sequencejs-options.modern-slide-in.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="/marvel/js/theme.js"></script>
+
+</body>
+</html>

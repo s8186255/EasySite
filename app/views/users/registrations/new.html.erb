@@ -1,0 +1,48 @@
+<h2>Sign up</h2>
+<%= javascript_include_tag "back/application" %>
+<%= stylesheet_link_tag "back/application" %>
+<%= csrf_meta_tags %>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+
+    <%= f.input :username, required: true, autofocus: true %>
+    <%= f.input :mobile, required: true, autofocus: true %>
+    <%= f.input :email, required: true, autofocus: true %>
+    <%= f.input :code, required: true, autofocus: true %>
+    <a class="btn m-b-xs w-xs btn-default " onclick="sendsms(this)" >发送验证码</a>
+
+    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @validatable) %>
+    <%= f.input :password_confirmation, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Sign up" %>
+  </div>
+<% end %>
+<script type="text/javascript" charset="utf-8">
+function sendsms(_this) {
+  var that = $(_this);
+  var mobile = $("#user_mobile").val();
+  that.addClass("disabled");
+  var timeout=60;
+  var oldtext= that.text();
+  var t=setInterval(function (){
+    timeout -=1;
+    that.text(timeout + "秒后重新发送");
+    if (timeout==0) {
+      that.text(oldtext);
+      that.removeClass("disabled");
+      clearInterval(t)
+    }
+  },1000);
+
+  $.get("/user/mobile/deliver?mobile=" + mobile, function (data) {
+    console.log(data);
+  });
+}
+</script>
+
+<%= render "users/shared/links" %>

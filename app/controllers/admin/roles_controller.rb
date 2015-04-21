@@ -1,8 +1,5 @@
 class Admin::RolesController < ApplicationController
-  before_filter :login_required
 
-  before_filter :return_if_not_admin
-  layout "admin"
   def index
     @roles = Role.all
 

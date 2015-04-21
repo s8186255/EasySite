@@ -1,8 +1,5 @@
 class Admin::InfoTypesController < ApplicationController
-  
-  before_filter :login_required
-  before_filter :return_if_not_admin
-  layout "admin"
+
   def index
     @info_types=InfoType.find :all
   end

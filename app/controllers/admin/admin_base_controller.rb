@@ -1,4 +1,9 @@
 class Admin::AdminBaseController< ApplicationController
-  before_filter:login_required
+
   #layout 'admin'
+
+  protected
+  def authenticate_role
+    authenticate_user!
+  end
 end

@@ -1,8 +1,5 @@
 class Admin::TopicTypesController < ApplicationController
-  
-  before_filter :login_required
 
-  before_filter :return_if_not_admin
   def index
     @topic_types=TopicType.find :all
   end

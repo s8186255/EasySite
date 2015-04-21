@@ -1,7 +1,4 @@
 class Admin::ContentTypesController < ApplicationController
-  before_filter :login_required
-  before_filter :return_if_not_admin
-  layout "admin"
   def index
     return_if_not_admin
     @content_types=ContentType.find :all

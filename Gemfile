@@ -71,3 +71,7 @@ gem 'mongoid-tree', :require => 'mongoid/tree'
 #mongoid soft delete
 gem 'mongoid_paranoia'
 
+#omniauth
+gem 'omniauth-weibo-oauth2'
+gem 'omniauth-qq'
+gem 'omniauth'
